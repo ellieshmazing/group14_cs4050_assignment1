@@ -66,6 +66,22 @@ public class SortShow extends JPanel {
 			//giving j element in lines_lengths the value of temp
 			lines_lengths[j] = temp;
 		}
+
+	///////////////////////////////////////////////////////////////////////////////////
+	//The bubbleSort method
+	public void BubbleSort(){
+		//getting the date and time when the recursive merge sort starts
+		Calendar start = Calendar.getInstance();
+		//assigning the size for the tempArray below
+
+		//You need to complete this part.
+
+		Calendar end = Calendar.getInstance();
+		//getting the time it took for the iterative merge sort to execute
+		//subtracting the end time with the start time
+		SortGUI.bubbleTime = end.getTime().getTime() - start.getTime().getTime();
+	}
+	///////////////////////////////////////////////////////////////////////////////////
 		
 		//The selectionSort method
 		public void SelectionSort(){
@@ -90,6 +106,34 @@ public class SortShow extends JPanel {
 			return 1; //modify this line
 		}
 		
+	///////////////////////////////////////////////////////////////////////////////////
+	//The Insertion Sort Method
+	public void InsertionSort(){
+		//getting the date and time when the recursive merge sort starts
+		Calendar start = Calendar.getInstance();
+		//assigning the size for the tempArray below
+
+		//You need to complete this part.
+
+		Calendar end = Calendar.getInstance();
+		//getting the time it took for the iterative merge sort to execute
+		//subtracting the end time with the start time
+		SortGUI.insertionTime = end.getTime().getTime() - start.getTime().getTime();
+	}
+	///////////////////////////////////////////////////////////////////////////////////
+	//The Shell Sort Method
+	public void ShellSort(){
+		//getting the date and time when the recursive merge sort starts
+		Calendar start = Calendar.getInstance();
+		//assigning the size for the tempArray below
+
+		//You need to complete this part.
+
+		Calendar end = Calendar.getInstance();
+		//getting the time it took for the iterative merge sort to execute
+		//subtracting the end time with the start time
+		SortGUI.shellTime = end.getTime().getTime() - start.getTime().getTime();
+	}
 	///////////////////////////////////////////////////////////////////////////////////
 		
 		//recursive merge sort method
@@ -237,7 +281,21 @@ public class SortShow extends JPanel {
 			lines_lengths[index] = tempArray[index];
 	}
 
-	//////////////////////////////////////////////////////////////////////	
+	//////////////////////////////////////////////////////////////////////
+	//The Quick Sort Method
+	public void QuickSort(){
+		//getting the date and time when the recursive merge sort starts
+		Calendar start = Calendar.getInstance();
+		//assigning the size for the tempArray below
+
+		//You need to complete this part.
+
+		Calendar end = Calendar.getInstance();
+		//getting the time it took for the iterative merge sort to execute
+		//subtracting the end time with the start time
+		SortGUI.quickTime = end.getTime().getTime() - start.getTime().getTime();
+	}
+	///////////////////////////////////////////////////////////////////////////////////
 		
 		//This method resets the window to the scrambled lines display
 		public void reset(){
