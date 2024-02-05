@@ -68,7 +68,7 @@ public class SortShow extends JPanel {
 		}
 
 	///////////////////////////////////////////////////////////////////////////////////
-	//The bubbleSort method
+	//The bubbleSort method implemented by Ellie
 	public void BubbleSort(){
 		//getting the date and time when the bubble merge sort starts
 		Calendar start = Calendar.getInstance();
@@ -294,17 +294,64 @@ public class SortShow extends JPanel {
 
 	//////////////////////////////////////////////////////////////////////
 	//The Quick Sort Method
+	//Works in-place, but recursively
+	//Features delays to allow rendering time, but obviously would be quicker without
+	//Implemented by Ellie
 	public void QuickSort(){
-		//getting the date and time when the recursive merge sort starts
+		//getting the date and time when the quick sort starts
 		Calendar start = Calendar.getInstance();
-		//assigning the size for the tempArray below
-
-		//You need to complete this part.
+		//Initial call of QuickSort
+		QuickSort(0, total_number_of_lines - 1);
 
 		Calendar end = Calendar.getInstance();
-		//getting the time it took for the iterative merge sort to execute
+		//getting the time it took for the quick sort to execute
 		//subtracting the end time with the start time
 		SortGUI.quickTime = end.getTime().getTime() - start.getTime().getTime();
+	}
+
+	//Recursive QuickSort method, takes first and last indices as parameters
+	public void QuickSort(int first, int last){
+			//Terminates when base case of array size 1 met
+			if (first < last)
+			{
+				//Sorts elements around pivot
+				int pivotIndex = partition(first, last);
+				//Rerender graphics
+				paintComponent(this.getGraphics());
+				delay(1);
+
+				//Calls QuickSort on segment less than pivot
+				QuickSort(first, pivotIndex - 1);
+				//Calls QuickSort on segement greater than pivot
+				QuickSort(pivotIndex + 1, last);
+			}
+	}
+
+	//Partition method to sort elements into segments around pivot
+	public int partition(int first, int last){
+			//Set pivot as last value in segment
+			int pivot = lines_lengths[last];
+
+			//Index marking end of segment of elements smaller than pivot
+		int lessSeg = first - 1;
+
+		//Sort segment around pivot value
+		for (int i = first; i <= last; i++){
+			//Compare element to pivot
+			if (lines_lengths[i] < pivot){
+				//If smaller, place in lesser Segment
+				lessSeg++;
+				swap(lessSeg, i);
+
+				//Rerender graphics
+				paintComponent(this.getGraphics());
+				delay(1);
+			}
+		}
+
+		//Place pivot after lesser segment
+		swap(lessSeg + 1, last);
+		return lessSeg + 1;
 	}
 	///////////////////////////////////////////////////////////////////////////////////
 		

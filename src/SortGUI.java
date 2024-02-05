@@ -11,6 +11,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 //the class with button and main method
+//GUI updates were implemented by Ellie
 public class SortGUI {
 
 	// import javax.swing.JFrame;
