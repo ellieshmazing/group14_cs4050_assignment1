@@ -70,11 +70,22 @@ public class SortShow extends JPanel {
 	///////////////////////////////////////////////////////////////////////////////////
 	//The bubbleSort method
 	public void BubbleSort(){
-		//getting the date and time when the recursive merge sort starts
+		//getting the date and time when the bubble merge sort starts
 		Calendar start = Calendar.getInstance();
-		//assigning the size for the tempArray below
-
-		//You need to complete this part.
+		//Sorting loop, iterating once to find current largest unsorted element
+		for (int i = 0; i < total_number_of_lines - 1; i++){
+			//Inner loop to swap elements until largest unsorted is at beginning of sorted area
+			for (int j = 0; j < total_number_of_lines - 1 - i; j++) {
+				//Compares current element with next element
+				if (lines_lengths[j] > lines_lengths[j + 1]){
+					//If current element is larger, swap then redraw lines
+					swap(j, j+1);
+					paintComponent(this.getGraphics());
+					//Delay to allow graphics to render
+					delay(2);
+				}
+			}
+		}
 
 		Calendar end = Calendar.getInstance();
 		//getting the time it took for the iterative merge sort to execute

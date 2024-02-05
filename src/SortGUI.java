@@ -243,10 +243,10 @@ public class SortGUI {
 				public void actionPerformed(ActionEvent e) {
 					//Sorting the array in the bubble sort method
 					sortArea.BubbleSort();
-					//Selection sort has finished/been clicked
-					Bubble_Done = true;
 					//The amount of time taken for selection sort took
 					bubble_time_taken.setText(bubbleTime / 1000 + " Seconds");
+					//Selection sort has finished/been clicked
+					Bubble_Done = true;
 					//setting all booleans false except for reset
 					reset.setSelected(false);
 					Set_Available_Chooses(false, false, false, false,false, false, false, true);
