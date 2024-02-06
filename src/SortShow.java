@@ -74,15 +74,14 @@ public class SortShow extends JPanel {
 		Calendar start = Calendar.getInstance();
 		//Sorting loop, iterating once to find current largest unsorted element
 		for (int i = 0; i < total_number_of_lines - 1; i++){
+			//Rerenders graphics every loop
+			paintComponent(this.getGraphics());
 			//Inner loop to swap elements until largest unsorted is at beginning of sorted area
 			for (int j = 0; j < total_number_of_lines - 1 - i; j++) {
 				//Compares current element with next element
 				if (lines_lengths[j] > lines_lengths[j + 1]){
-					//If current element is larger, swap then redraw lines
+					//If current element is larger, then swap
 					swap(j, j+1);
-					paintComponent(this.getGraphics());
-					//Delay to allow graphics to render
-					delay(2);
 				}
 			}
 		}
@@ -311,14 +310,15 @@ public class SortShow extends JPanel {
 
 	//Recursive QuickSort method, takes first and last indices as parameters
 	public void QuickSort(int first, int last){
+			//Rerenders graphics every time function is called
+			paintComponent(this.getGraphics());
+			delay(10);
+
 			//Terminates when base case of array size 1 met
 			if (first < last)
 			{
 				//Sorts elements around pivot
 				int pivotIndex = partition(first, last);
-				//Rerender graphics
-				paintComponent(this.getGraphics());
-				delay(1);
 
 				//Calls QuickSort on segment less than pivot
 				QuickSort(first, pivotIndex - 1);
@@ -342,10 +342,6 @@ public class SortShow extends JPanel {
 				//If smaller, place in lesser Segment
 				lessSeg++;
 				swap(lessSeg, i);
-
-				//Rerender graphics
-				paintComponent(this.getGraphics());
-				delay(1);
 			}
 		}
 
