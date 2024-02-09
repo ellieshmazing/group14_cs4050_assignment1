@@ -92,17 +92,27 @@ public class SortShow extends JPanel {
     ///////////////////////////////////////////////////////////////////////////////////
 
     //The selectionSort method
+    //Implemented by Atul Krishnadas
     public void SelectionSort() {
-        //getting the date and time when the selection sort starts
+        // Record the start time of the selection sort
         Calendar start = Calendar.getInstance();
-        //Using the selection sort to lines_lengths sort the array
 
-        //You need to complete this part.
+        for (int i = 0; i < total_number_of_lines - 1; i++) {
+            // Find the minimum element in unsorted array
+            int minIndex = i;
+            for (int j = i + 1; j < total_number_of_lines; j++) {
+                if (lines_lengths[j] < lines_lengths[minIndex]) {
+                    minIndex = j;
+                }
+            }
+            // Swap the found minimum element with the first element
+            if (minIndex != i) {
+                swap(i, minIndex);
+                paintComponent(this.getGraphics());
+            }
+        }
 
-        //getting the date and time when the selection sort ends
         Calendar end = Calendar.getInstance();
-        //getting the time it took for the selection sort to execute
-        //subtracting the end time with the start time
         SortGUI.selectionTime = end.getTime().getTime() - start.getTime().getTime();
     }
 
@@ -116,16 +126,27 @@ public class SortShow extends JPanel {
 
     ///////////////////////////////////////////////////////////////////////////////////
     //The Insertion Sort Method
+    //Implemented by Atul Krishnadas
     public void InsertionSort() {
-        //getting the date and time when the recursive merge sort starts
+        // Record the start time of the insertion sort
         Calendar start = Calendar.getInstance();
-        //assigning the size for the tempArray below
+        // Start from the second element (index 1)
+        for (int i = 1; i < total_number_of_lines; i++) {
+            int current = lines_lengths[i];
+            int j = i - 1;
+            // Move elements of lines_lengths[0..i-1], that are greater than current, to one position ahead
+            while (j >= 0 && lines_lengths[j] > current) {
+                lines_lengths[j + 1] = lines_lengths[j];
+                j = j - 1;
 
-        //You need to complete this part.
+//                paintComponent(this.getGraphics());
+            }
+            lines_lengths[j + 1] = current;
+
+             paintComponent(this.getGraphics());
+        }
 
         Calendar end = Calendar.getInstance();
-        //getting the time it took for the iterative merge sort to execute
-        //subtracting the end time with the start time
         SortGUI.insertionTime = end.getTime().getTime() - start.getTime().getTime();
     }
 
@@ -180,7 +201,7 @@ public class SortShow extends JPanel {
 
     //recursive merge sort method
     public void R_MergeSort(int first, int last) {
-        delay(10);
+//        delay(10);
         //base case to stop the recusion
         if (first < last) {
 
@@ -308,7 +329,7 @@ public class SortShow extends JPanel {
                 //redrawing the lines_lengths
                 paintComponent(this.getGraphics());
                 //Causing a delay for 10ms
-                delay(10);
+//                delay(10);
             }
             // Returns index of last merged pair
             return beginSegment1;
@@ -378,7 +399,7 @@ public class SortShow extends JPanel {
         public void QuickSort ( int first, int last){
             //Rerenders graphics every time function is called
             paintComponent(this.getGraphics());
-            delay(10);
+//            delay(10);
 
             //Terminates when base case of array size 1 met
             if (first < last) {
